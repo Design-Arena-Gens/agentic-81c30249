@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background-color: #06071a;
+}
+
+body {
+  @apply bg-[#06071a] text-white font-body antialiased;
+}
+
+a {
+  @apply underline decoration-ink-400 decoration-2 underline-offset-4 hover:text-ink-200;
+}
+
+.section-container {
+  @apply relative mx-auto w-full max-w-5xl px-6 py-16 md:py-24;
+}
+
+.glow-ring::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, rgba(123, 134, 255, 0.35), transparent 70%);
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.glow-ring:hover::before {
+  opacity: 1;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgba(83, 96, 255, 0.4), rgba(248, 211, 255, 0.2));
+  padding: 1px;
+}
+
+.gradient-border > div {
+  border-radius: 1.45rem;
+  background: rgba(10, 12, 36, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
